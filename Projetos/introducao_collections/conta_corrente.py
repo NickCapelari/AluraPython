@@ -1,14 +1,17 @@
+from operator import attrgetter
+
 class ContaCorrente:
 
     def __init__(self, codigo):
         self.codigo = codigo
-        self.saldo = 0
+        self._saldo = 0
 
     def deposita (self, valor):
-        self.saldo += valor
+        self._saldo += valor
 
     def __str__(self):
-        return "[>> Codigo {} Saldo {} <<]".format(self.codigo, self.saldo)
+        return "[>> Codigo {} Saldo {} <<]".format(self.codigo, self._saldo)
+
 
 def deposita_para_todas(contas):
     for conta in contas:
@@ -27,6 +30,8 @@ for conta in contas:
 deposita_para_todas(contas)
 for conta in contas:
     print(conta)
+for conta in sorted(contas, key=attrgetter("_saldo")):
+    print("conta com sorted: {}".format(conta))
 
 
 
