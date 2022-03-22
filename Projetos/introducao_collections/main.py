@@ -32,6 +32,9 @@ for indice, _ in enumerate(idades):  #desempacotando e ignorando um campo
         print(indice)
 for indice, idade in enumerate(idades):  # desempacotando e ignorando um campo
     print(indice)
+print(sorted(idades)) #ordenando
+print(sorted(idades, reverse=True)) #ao contratio usando Sorted
+print(list(reversed(sorted(idades)))) #ao contrario com Lazy
 
 idades.clear()
 print(idades)
