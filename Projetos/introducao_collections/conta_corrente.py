@@ -12,6 +12,9 @@ class ContaCorrente:
     def __str__(self):
         return "[>> Codigo {} Saldo {} <<]".format(self.codigo, self._saldo)
 
+    def __lt__(self, other): #deixando a classe de maneira comparavel
+        return self._saldo < other._saldo
+
 
 def deposita_para_todas(contas):
     for conta in contas:
@@ -30,8 +33,14 @@ for conta in contas:
 deposita_para_todas(contas)
 for conta in contas:
     print(conta)
-for conta in sorted(contas, key=attrgetter("_saldo")):
+for conta in sorted(contas, key=attrgetter("_saldo")): #jeito para acessar atributos privados
     print("conta com sorted: {}".format(conta))
+
+print(conta_da_dani > conta_do_gui)
+
+for conta in sorted(contas): #ordenando de forma natural depois de implementar __lt__
+    print(conta)
+
 
 
 
