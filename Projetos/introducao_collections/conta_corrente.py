@@ -10,6 +10,10 @@ class ContaCorrente:
     def __str__(self):
         return "[>> Codigo {} Saldo {} <<]".format(self.codigo, self.saldo)
 
+def deposita_para_todas(contas):
+    for conta in contas:
+        conta.deposita(100)
+
 conta_do_gui = ContaCorrente(15)
 print (conta_do_gui)
 conta_do_gui.deposita(100)
@@ -20,3 +24,9 @@ print(conta_da_dani)
 contas = [conta_da_dani, conta_do_gui]
 for conta in contas:
     print(conta)
+deposita_para_todas(contas)
+for conta in contas:
+    print(conta)
+
+
+
