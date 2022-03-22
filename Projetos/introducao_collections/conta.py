@@ -14,6 +14,8 @@ class Conta(metaclass=ABCMeta):
     def passa_mes(self):
         pass
 
+
+
 class ContaCorrente(Conta):
 
     def passa_mes(self):
@@ -24,6 +26,11 @@ class ContaPoupanca(Conta):
     def passa_mes(self):
         self._saldo *= 1.01
         self._saldo -= 3
+
+    def __eq__(self, outro):
+        if (type(outro) != ContaPoupanca):
+            return False
+        return self._codigo == outro._codigo and self._saldo == outro._saldo
 
 class ContaInvestimento(Conta):
     pass
