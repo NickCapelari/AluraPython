@@ -13,12 +13,25 @@ print(idades)
 idades.extend([50,85])
 print(idades)
 
+
 idades_ano_que_vem = [(idade+1) for idade in idades]
 print(idades_ano_que_vem)
 
 print([(idade) for idade in idades if idade < 21])
 
 print([proximo_ano(idade) for idade in idades if idade > 21])
+
+print(list(range(len(idades))))
+print(list(enumerate(idades)))
+
+for valor in enumerate(idades): #sem desempacotar
+    print(valor)
+for indice, idade in enumerate(idades): #desempacotando
+    print(indice, idade)
+for indice, _ in enumerate(idades):  #desempacotando e ignorando um campo
+        print(indice)
+for indice, idade in enumerate(idades):  # desempacotando e ignorando um campo
+    print(indice)
 
 idades.clear()
 print(idades)
